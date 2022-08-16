@@ -2,7 +2,8 @@ Example bucket to test module usage.
 
 # Usage
 
-```module "s3" {
+```
+module "s3" {
   source = "github.com/CloudNation-nl/aws-terraform-modules//s3/v0.0.1"
   bucket = "mybucket"
 }

@@ -2,7 +2,8 @@ VPC with configurable AZs, Flow logs and Gateway Endpoints
 
 # Usage
 
-```module "vpc" {
+```
+module "vpc" {
   source                  = "github.com/CloudNation-nl/aws-terraform-modules//vpc/v0.0.1"
   private_zone_name       = "customer.internal"
   name                    = "customer"
