@@ -21,7 +21,8 @@ VPC with configurable AZs, Flow logs and Gateway Endpoints
     tag          = "value"
     Managedby    = "Terraform"
   }
-}```
+}
+```
 
 # CHANGELOG
 
