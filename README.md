@@ -5,10 +5,12 @@ Public modules for use with Terraform
 
 Call as a module from Terraform: 
 
-`module "s3" {
+```
+module "s3" {
   source = "github.com/CloudNation-nl/aws-terraform-modules//s3/v0.0.1"
   bucket = "mybucket"
-}`
+}
+```
 
 Run `terraform init` and `terraform plan`
 
