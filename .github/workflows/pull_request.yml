@@ -1,0 +1,30 @@
+name: "Validate Terraform"
+
+on:
+  pull_request:
+
+permissions:
+      id-token: write
+      contents: read    # This is required for actions/checkout
+
+jobs:
+  terraform:
+    name: "Validate Terraform"
+    runs-on: ubuntu-latest
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check -diff -recursive
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
