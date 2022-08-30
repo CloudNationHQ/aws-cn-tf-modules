@@ -1,3 +1,3 @@
 resource "aws_s3_bucket" "example" {
-  bucket = "${var.bucket}-othername"
+                bucket = "${var.bucket}-othername"
 }
