@@ -1,0 +1,27 @@
+{
+  "agent": {
+    "metrics_collection_interval": 60
+  },
+  "metrics": {
+    "namespace": "CWAgent",
+    "metrics_collected": {
+      "LogicalDisk": {
+        "measurement":[
+          {"name": "% Free Space", "unit": "Percent"},
+          {"name": "Free Megabytes", "unit": "Megabytes"}
+        ],
+        "resources": [
+            "*"
+        ]
+      },
+      "Memory": {
+        "measurement": [
+          {"name": "Available MBytes", "unit": "Megabytes"}
+        ],
+        "resources": [
+          "*"
+        ]
+      }
+    }
+  }
+}
