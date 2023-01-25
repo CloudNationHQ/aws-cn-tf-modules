@@ -4,7 +4,7 @@ output "arn" {
 }
 
 output "name" {
-  description = "Infinidash dashboard arn"
+  description = "Infinidash dashboard name"
   value       = aws_infinidash_dashboard.example.name
 }
 

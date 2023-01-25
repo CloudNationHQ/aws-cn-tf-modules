@@ -3,7 +3,7 @@ Example resource to demonstrate requirements.
 # Features
 
 - Resource with a required and optional parameter
-- Additional parameter that defaults to null
+- Additional parameter that defaults to false
 
 # Usage
 
