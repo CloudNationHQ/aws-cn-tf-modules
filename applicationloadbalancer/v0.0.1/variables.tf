@@ -30,3 +30,8 @@ variable "load_balancer_internal" {
 variable "tags" {
   type = map(any)
 }
+
+variable "cloudfront" {
+  type        = bool
+  description = "is cloudfront infront of alb, set true, if not, set false"
+}

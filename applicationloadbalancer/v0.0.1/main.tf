@@ -10,6 +10,7 @@ resource "aws_lb" "loadbalancer" {
   enable_deletion_protection = var.enable_deletion_protection
   idle_timeout               = 3600
   access_logs {
+    count = var.enable_access_logs ? 1 : 0
     bucket  = aws_s3_bucket.lb_logs.bucket
     prefix  = "${var.name}-lb_logs"
     enabled = true
@@ -20,6 +21,7 @@ resource "aws_lb" "loadbalancer" {
 
 #Create a HTTP listener that redirects all traffic to HTTPS
 resource "aws_lb_listener" "http" {
+  count = var.use_cloudfront ? 0 : 1
   load_balancer_arn = aws_lb.loadbalancer.arn
   port              = "80"
   protocol          = "HTTP"
@@ -59,29 +61,59 @@ resource "aws_lb_listener_certificate" "certificate" {
 
 #Create the public security group
 data "aws_ec2_managed_prefix_list" "cloudfront" {
+  count = var.use_cloudfront ? 1 : 0
   name = "com.amazonaws.global.cloudfront.origin-facing"
 }
 
-resource "aws_security_group" "allow_lb" {
-  name        = "${var.name}-sg"
+resource "aws_security_group" "allow-lb-cf" {
+  count = var.use_cloudfront ? 1 : 0
+  name        = "${var.name}-sg-cf"
   description = "Security group for ALB"
   vpc_id      = var.vpc_id
 
   ingress {
-    description     = "443 from internet"
+    description     = "443 from cloudfront"
     from_port       = 443
     to_port         = 443
     protocol        = "tcp"
     prefix_list_ids = [data.aws_ec2_managed_prefix_list.cloudfront.id]
   }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0", "::/0"]
+  }
+}
+
+resource "aws_security_group" "allow-lb" {
+  count = var.use_cloudfront ? 0 : 1
+  name        = "${var.name}-sg"
+  description = "Security group for ALB"
+  vpc_id      = var.vpc_id
+  ingress {
+    description     = "443 from Internet"
+    from_port       = 443
+    to_port         = 443
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0", "::/0"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0", "::/0"]
+  }
 }
 
 resource "aws_s3_bucket" "lb_logs" {
+  count = var.enable_access_logs ? 1 : 0
   bucket_prefix = join("-", [var.name, "lb-logs"])
   tags          = var.tags
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "lifecycle" {
+  count = var.enable_access_logs ? 1 : 0  
   bucket = aws_s3_bucket.lb_logs.id
   rule {
     id = "expire-30"
@@ -93,6 +125,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "lifecycle" {
 }
 
 resource "aws_s3_bucket_public_access_block" "lb_logs" {
+  count = var.enable_access_logs ? 1 : 0
   bucket                  = aws_s3_bucket.lb_logs.id
   block_public_acls       = true
   block_public_policy     = true
@@ -101,6 +134,7 @@ resource "aws_s3_bucket_public_access_block" "lb_logs" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "s3_encryption" {
+  count = var.enable_access_logs ? 1 : 0  
   bucket = aws_s3_bucket.lb_logs.bucket
   rule {
     apply_server_side_encryption_by_default {
@@ -110,6 +144,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "s3_encryption" {
 }
 
 resource "aws_s3_bucket_policy" "lb-bucket-policy" {
+  count = var.enable_access_logs ? 1 : 0
   bucket = aws_s3_bucket.lb_logs.id
 
   policy = <<POLICY

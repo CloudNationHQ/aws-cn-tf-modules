@@ -15,6 +15,11 @@ output "dns_name" {
 
 output "security_group" {
   description = "security_group"
-  value       = aws_security_group.allow_lb.id
+  value       = aws_security_group.allow_lb[*].id
+}
+
+output "security_group_cf" {
+  description = "security_group"
+  value       = aws_security_group.allow_lb_cf[*].id
 }
 
