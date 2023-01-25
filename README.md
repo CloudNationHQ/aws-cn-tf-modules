@@ -12,11 +12,11 @@ module "s3" {
 }
 ```
 
-Run `terraform init` and `terraform plan`
+Run `terraform init` and `terraform plan` and `terraform apply`
 
 # Versioning
 
-Modules once uploaded will never change. New versions can have minor fixes (vx.x.1->2), added resources (vx.1->2.x) or breaking changes (v1->2.x.x)
+Modules once uploaded will never change. New versions can have minor fixes (vx.x.1->vx.x.2), added resources (vx.1.x->vx.2.x) or breaking changes (v1.x.x->2.x.x)
 
 # License, Bugs, issues and questions
 
@@ -24,4 +24,6 @@ CloudNation offers these modules free of charge. If you're missing features, fin
 
 # Adding modules
 
-Please open a Pull Request for any new versions, make sure to adhere to the versioning strategy and to update the README.md with the changes made. Pull requests are automatically verified using `terraform fmt` and `terraform validate`. To ensure these tests succeed, perform these against your changes first.
+See `modules/_example` for an example that you can use as a start
+
+Please open a Pull Request for any new versions, make sure to adhere to the versioning strategy and to update the README.md with the changes made. Pull requests are automatically verified using `terraform fmt`. To ensure these tests succeed, perform these against your changes first.
