@@ -18,18 +18,18 @@ module "example" {
 
 
 
-| Input  | Required  | Purpose  | Default  | Example  |
+| Input  | Required  | Purpose  | Default  | Type | Example  |
 |---|---|---|---|---|
-| requiredparam  |   |   |   |   |
-| defaultparam  |   |   |   |   |
-| optionalparam  |   |   |   |   |
+| requiredparam  | Y  | Sets a required input  | n/a  | string | myexampleresource  |
+| defaultparam  | N  | Sets an input that has a default  | mydefaultvalue  | string | mychangedvalue |
+| optionalparam  | N  | Sets an input that is optional  | null  | boolean | True  |
 
 # Outputs
 | Output Name | Description   | Conditional  | Example |
 |---|---|---|---|
 | arn  | the ARN of the resource   | N  | arn:aws:infinifash::123456789012:dash/myexample |
-| name  | the name of the resource  | N  | "myexampleresource |
-| URL  | The URL of the resource, if enabled  | Y  | "https://lorus.ips.um" |
+| name  | the name of the resource  | N  | myexampleresource |
+| URL  | The URL of the resource, if enabled  | Y  | https://lorus.ips.um |
 
 # CHANGELOG
 
