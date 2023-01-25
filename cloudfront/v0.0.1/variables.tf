@@ -28,16 +28,16 @@ variable "zone_id" {
 }
 
 variable "ssl_support_method" {
-  type = string
+  type    = string
   default = "sni-only"
 }
 
 variable "minimum_protocol_version" {
-  type = string
+  type    = string
   default = "TLSv1.2_2018"
 }
 
 variable "restriction_type" {
-  type = string
+  type    = string
   default = "none"
 }

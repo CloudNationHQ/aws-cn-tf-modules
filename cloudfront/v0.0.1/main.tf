@@ -36,7 +36,7 @@ resource "aws_cloudfront_distribution" "cf_dist" {
 
   restrictions {
     geo_restriction {
-      restriction_type = var.restriction_type 
+      restriction_type = var.restriction_type
       locations        = []
     }
   }
@@ -45,7 +45,7 @@ resource "aws_cloudfront_distribution" "cf_dist" {
 
   viewer_certificate {
     acm_certificate_arn      = var.certificate_arn
-    ssl_support_method       = var.ssl_support_method 
-    minimum_protocol_version = var.minimum_protocol_version 
+    ssl_support_method       = var.ssl_support_method
+    minimum_protocol_version = var.minimum_protocol_version
   }
 }
