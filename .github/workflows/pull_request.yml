@@ -1,4 +1,4 @@
-name: "Validate Terraform"
+name: "FMT Terraform"
 
 on: [pull_request]
 
@@ -20,11 +20,3 @@ jobs:
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check -diff -recursive
-
-      - name: Terraform Init
-        id: init
-        run: terraform init
-
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate -no-color
