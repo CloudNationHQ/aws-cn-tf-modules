@@ -1,21 +1,29 @@
-CloudFront with dependencies such as WAF and ALB
-Deploy this module inconjuction with the loadbalancer
+# CloudFront 
 
-- Fill in the description 
-- Fill in the domain names that needs to be attached to CloudFront
+Features 
+- Automatically create an A Record with Alias for CloudFront distribution
+- Insert multiple domain names to reroute CloudFormation
+- IP Whitelisting on CloudFront, perfect for staging or acceptance environment
 
-# Usage
+Dependencies
+- ALB
+- ACM
+- WAF if you want to use IP sets
+
+## Usage
 
 ```
 module "cf" {
-  source       = "../../modules/cloudfront"
+  source       = "github.com/CloudNation-nl/aws-terraform-modules//cloudfront/v0.0.1"
   alb_dns_name = module.alb.dns_name
-  wafv2_arn    = module.wafv2cf.wafv2cf_arn
-  description  = ""
+  # wafv2_arn    = module.wafv2cf.wafv2cf_arn (enable this for using IP set as whitelist method)
+  zone_id = module.route53.public_zone_id
+  description  = "<insert description>"
   domain_names = [
-    ""
+    "<insert url>",
+    "*.<insert url>"
   ]
   certificate_arn = module.acm.cert_arn_cloudfront
-  tags            = module.tags-factory.tags
+  tags            = local.tags (or use tags-factory)
 }
 ```

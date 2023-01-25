@@ -23,3 +23,16 @@ variable "wafv2_arn" {
   default = null
 }
 
+variable "zone_id" {
+  type = string
+}
+
+variable "ssl_support_method" {
+  type = string
+  default = "sni-only"
+}
+
+variable "minimum_protocol_version" {
+  type = string
+  default = "TLSv1.2_2018"
+}
