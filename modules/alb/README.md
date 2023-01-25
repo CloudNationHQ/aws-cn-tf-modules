@@ -12,7 +12,7 @@ Deploying AWS ELB, enabled encrypted S3 bucket to store VPC flow logs
 ## Usage 
 ```
 module "alb" {
-  source                      = "../../modules/applicationloadbalancer"
+  source                      = "github.com/CloudNation-nl/aws-terraform-modules/modules/alb/v0.0.1"
   name                        = "alb"
   load_balancer_internal      = "false"
   #   cloudfront                  = "true" 
