@@ -1,4 +1,4 @@
-# CloudFront 
+# CloudFront to ALB
 
 Features 
 - Automatically create an A Record with Alias for CloudFront distribution
@@ -8,7 +8,7 @@ Features
 Dependencies
 - ALB
 - ACM
-- WAF if you want to use IP sets for whitelist purposes
+- WAF (optional if you want to use IP sets for whitelist purposes)
 
 ## Usage
 
