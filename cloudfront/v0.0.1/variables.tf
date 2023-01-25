@@ -36,3 +36,8 @@ variable "minimum_protocol_version" {
   type = string
   default = "TLSv1.2_2018"
 }
+
+variable "restriction_type" {
+  type = string
+  default = "none"
+}
