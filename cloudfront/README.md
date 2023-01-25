@@ -8,7 +8,7 @@ Features
 Dependencies
 - ALB
 - ACM
-- WAF if you want to use IP sets
+- WAF if you want to use IP sets for whitelist purposes
 
 ## Usage
 
