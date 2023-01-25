@@ -37,7 +37,7 @@ resource "aws_cloudfront_distribution" "cf_dist" {
   restrictions {
     geo_restriction {
       restriction_type = var.restriction_type
-      locations        = []
+      locations        = var.locations
     }
   }
 

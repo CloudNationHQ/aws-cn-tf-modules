@@ -2,7 +2,7 @@
 
 Features 
 - Automatically create an A Record with Alias for CloudFront distribution
-- Insert multiple domain names to reroute CloudFormation
+- Insert multiple domain names to reroute CloudFront
 - IP Whitelisting on CloudFront, perfect for staging or acceptance environment
 
 Dependencies
@@ -14,7 +14,7 @@ Dependencies
 
 ```
 module "cf" {
-  source       = "github.com/CloudNation-nl/aws-terraform-modules//cloudfront/v0.0.1"
+  source       = "github.com/CloudNation-nl/aws-terraform-modules/modules/cloudfront/v0.0.1"
   alb_dns_name = module.alb.dns_name
   # wafv2_arn    = module.wafv2cf.wafv2cf_arn (enable this for using IP set as whitelist method)
   zone_id = module.route53.public_zone_id
