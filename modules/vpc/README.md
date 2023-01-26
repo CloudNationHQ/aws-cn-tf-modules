@@ -88,9 +88,9 @@ module "vpc" {
 | <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | The ID of the VPC |
 
 # CHANGELOG
-- v2.0.1
--- Made all inputs optional
--- Updated README
+### v2.0.1
+- Made all inputs optional
+- Updated README
 
-- v0.0.1
--- Initial Commit
+### v0.0.1
+- Initial Commit
