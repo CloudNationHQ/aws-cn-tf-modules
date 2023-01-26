@@ -35,3 +35,9 @@ variable "cloudfront" {
   type        = bool
   description = "is cloudfront infront of alb, set true, if not, set false"
 }
+
+variable "access_logs" {
+  type        = bool
+  description = "enable access logs, set to true, if not, set to false"
+  default     = false
+}

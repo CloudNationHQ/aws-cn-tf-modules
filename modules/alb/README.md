@@ -16,6 +16,7 @@ module "alb" {
   name                        = "alb"
   load_balancer_internal      = "false"
   #   cloudfront                  = "true" 
+  access_logs                 = "true"
   subnet_ids                  = [module.vpc.subnet_public_subnet_ids[0], module.vpc.subnet_public_subnet_ids[1]]
   vpc_id                      = module.vpc.vpc_id
   enable_deletion_protection  = "true"
