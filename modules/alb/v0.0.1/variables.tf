@@ -16,7 +16,7 @@ variable "ssl_policy" {
   description = "Name of the SSL Policy for the listener. Required if protocol is HTTPS or TLS."
 }
 variable "default_certificate_arn" {
-  type = string
+  type        = string
   description = "ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS"
 }
 
@@ -25,7 +25,7 @@ variable "additional_certificate_arns" {
 }
 
 variable "load_balancer_internal" {
-  type = string
+  type        = string
   description = "If true, the LB will be internal."
 }
 
