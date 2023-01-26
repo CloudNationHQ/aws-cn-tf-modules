@@ -1,6 +1,5 @@
-AWS EC2, encrypted EBS and GP3 as standard
+# Features
 
-Features
 - Creates public_ingress_rules, management_ingress_rules and internal_ingress_rules security groups to divide rules
 - Create multiple EBS disks
 - Support different subnet ID 
@@ -8,6 +7,8 @@ Features
 - Change Userdata to add extra installations while booting, only applies once
 - Change policies if you need to add more rules or to the EC2
 - Change cw_agent_config to add metrics for CW alarms
+- Standard GP3 EBS
+- Standard Encrypted EBS
 
 Dependencies
 - VPC needs to be deployed
