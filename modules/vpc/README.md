@@ -57,13 +57,13 @@ module "vpc" {
 | <a name="input_create_database_nat_gateway_route"></a> [create\_database\_nat\_gateway\_route](#input\_create\_database\_nat\_gateway\_route) | Controls if a nat gateway route should be created to give internet access to the database subnets | `bool` | `false` | no |
 | <a name="input_database_subnet_group_name"></a> [database\_subnet\_group\_name](#input\_database\_subnet\_group\_name) | Use this to prevent renaming a database subnet when renaming VPC | `string` | `""` | no |
 | <a name="input_database_subnet_tags"></a> [database\_subnet\_tags](#input\_database\_subnet\_tags) | A list of database subnet tags | `map(any)` | <pre>{<br>  "Network": "Database"<br>}</pre> | no |
-| <a name="input_database_subnets"></a> [database\_subnets](#input\_database\_subnets) | A list of database subnets inside the VPC | `list(any)` | `[]` | no |
+| <a name="input_database_subnets"></a> [database\_subnets](#input\_database\_subnets) | A list of database subnets inside the VPC | `list(string)` | `[]` | no |
 | <a name="input_enable_flow_log"></a> [enable\_flow\_log](#input\_enable\_flow\_log) | Boolean to disable/enable VPC flow logging | `bool` | `false` | no |
 | <a name="input_enable_nat_gateway"></a> [enable\_nat\_gateway](#input\_enable\_nat\_gateway) | Should be true if you want to provision NAT Gateways for each of your private networks | `bool` | `true` | no |
 | <a name="input_env"></a> [env](#input\_env) | environment name. | `string` | `"dev"` | no |
 | <a name="input_flow_log_retention_days"></a> [flow\_log\_retention\_days](#input\_flow\_log\_retention\_days) | VPC flow log bucket lifecycle retention period in days | `number` | `30` | no |
 | <a name="input_private_subnet_tags"></a> [private\_subnet\_tags](#input\_private\_subnet\_tags) | A list of private subnet tags | `map(any)` | <pre>{<br>  "Network": "Private",<br>  "kubernetes.io/role/internal-elb": "1"<br>}</pre> | no |
-| <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | A list of private subnets inside the VPC | `list(any)` | `[]` | no |
+| <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | A list of private subnets inside the VPC | `list(string)` | `[]` | no |
 | <a name="input_private_zone_name"></a> [private\_zone\_name](#input\_private\_zone\_name) | private zone name. | `string` | `"example.lan"` | no |
 | <a name="input_public_subnet_tags"></a> [public\_subnet\_tags](#input\_public\_subnet\_tags) | A list of public subnet tags | `map(any)` | <pre>{<br>  "Network": "Public",<br>  "kubernetes.io/role/elb": "1"<br>}</pre> | no |
 | <a name="input_public_subnets"></a> [public\_subnets](#input\_public\_subnets) | A list of public subnets inside the VPC | `list(string)` | `[]` | no |

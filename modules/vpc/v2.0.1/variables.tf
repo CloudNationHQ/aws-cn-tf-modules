@@ -31,7 +31,7 @@ variable "public_subnet_tags" {
 
 variable "private_subnets" {
   description = "A list of private subnets inside the VPC"
-  type        = list(any)
+  type        = list(string)
   default     = []
 }
 
@@ -52,7 +52,7 @@ variable "database_subnet_group_name" {
 
 variable "database_subnets" {
   description = "A list of database subnets inside the VPC"
-  type        = list(any)
+  type        = list(string)
   default     = []
 }
 
