@@ -9,14 +9,15 @@ variable "subnet_ids" {
 }
 variable "enable_deletion_protection" {
   type        = string
-  description = "(optional) describe your variable"
+  description = "True; enable deletion protection. False; disable deletion protection"
 }
 variable "ssl_policy" {
   type        = string
-  description = "(optional) describe your variable"
+  description = "Name of the SSL Policy for the listener. Required if protocol is HTTPS or TLS."
 }
 variable "default_certificate_arn" {
   type = string
+  description = "ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS"
 }
 
 variable "additional_certificate_arns" {
@@ -25,6 +26,7 @@ variable "additional_certificate_arns" {
 
 variable "load_balancer_internal" {
   type = string
+  description = "If true, the LB will be internal."
 }
 
 variable "tags" {
