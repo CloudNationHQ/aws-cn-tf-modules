@@ -5,5 +5,5 @@ variable "aws_region" {
 
 variable "map-migrated-value" {
   description = "map key, if applicable"
-  default = null
+  default     = null
 }
