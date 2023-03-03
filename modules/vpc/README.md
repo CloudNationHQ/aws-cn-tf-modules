@@ -10,7 +10,7 @@
 
 ```
 module "vpc" {
-  source                  = "github.com/CloudNation-nl/aws-terraform-modules//vpc/v2.0.1"
+  source                  = "github.com/CloudNation-nl/aws-terraform-modules//modules/vpc/v2.0.1"
 }
 ```
 
