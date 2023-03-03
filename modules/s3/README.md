@@ -11,5 +11,5 @@ module "s3" {
 
 # CHANGELOG
 
-v0.0.2
-- Added `othername` to bucket to verify changes between modules.
+v0.0.1
+- Very simple s3 bucket
