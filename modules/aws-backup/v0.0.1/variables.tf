@@ -48,7 +48,7 @@ variable "backup_notifications_topic" {
 }
 
 variable "backup_notifications_events" {
-  type    = list(string)
+  type = list(string)
   default = [
     "BACKUP_JOB_FAILED",
     "RESTORE_JOB_FAILED",
