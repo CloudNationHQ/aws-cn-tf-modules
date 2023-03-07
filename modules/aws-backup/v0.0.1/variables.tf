@@ -36,19 +36,19 @@ variable "monthly_backup_lifecycledays" {
 }
 
 variable "backup_notifications_enabled" {
-  type = bool
-  default = false
+  type        = bool
+  default     = false
   description = "Toggle for SNS notifications on fail backup events"
 }
 
 variable "backup_notifications_topic" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "SNS Topic for backup alerts eg. failed backup. It's advised to use a centralized topic in a Shared account"
 }
 
 variable "backup_notifications_events" {
-  type = list(string)
+  type    = list(string)
   default = [
     "BACKUP_JOB_FAILED",
     "RESTORE_JOB_FAILED",
