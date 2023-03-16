@@ -133,8 +133,8 @@ resource "aws_iam_role_policy_attachment" "aws_backup" {
   role       = aws_iam_role.aws_backup.name
 }
 
-resource "aws_backup_vault_notifications" "vault_failed_notifications" {
-  count               = var.backup_notifications_enabled ? 1 : 0
+resource "aws_backup_vault_notifications" "vault_notifications" {
+  count               = var.backup_notifications_topic == null ? 0 : 1
   backup_vault_name   = aws_backup_vault.aws_backup.name
   sns_topic_arn       = var.backup_notifications_topic
   backup_vault_events = var.backup_notifications_events

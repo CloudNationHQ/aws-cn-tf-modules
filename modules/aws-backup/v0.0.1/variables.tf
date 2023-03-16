@@ -35,12 +35,6 @@ variable "monthly_backup_lifecycledays" {
   default = 366
 }
 
-variable "backup_notifications_enabled" {
-  type        = bool
-  default     = false
-  description = "Toggle for SNS notifications on fail backup events"
-}
-
 variable "backup_notifications_topic" {
   type        = string
   default     = null
