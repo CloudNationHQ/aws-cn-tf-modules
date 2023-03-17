@@ -45,7 +45,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_backup_notifications_enabled"></a> [backup\_notifications\_enabled](#input\_backup\_notifications\_enabled) | Toggle for SNS notifications on fail backup events | `bool` | `false` | no |
 | <a name="input_backup_notifications_events"></a> [backup\_notifications\_events](#input\_backup\_notifications\_events) | Default list of events | `list(string)` | <pre>[<br>  "BACKUP_JOB_FAILED",<br>  "RESTORE_JOB_FAILED",<br>  "COPY_JOB_FAILED",<br>  "S3_BACKUP_OBJECT_FAILED",<br>  "S3_RESTORE_OBJECT_FAILED"<br>]</pre> | no |
 | <a name="input_backup_notifications_topic"></a> [backup\_notifications\_topic](#input\_backup\_notifications\_topic) | SNS Topic for backup alerts eg. failed backup. It's advised to use a centralized topic in a Shared account | `string` | `null` | no |
 | <a name="input_backup_vault_name"></a> [backup\_vault\_name](#input\_backup\_vault\_name) | n/a | `string` | `"my-backup-vault"` | no |

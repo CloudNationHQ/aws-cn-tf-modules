@@ -41,6 +41,11 @@ variable "backup_notifications_topic" {
   description = "SNS Topic for backup alerts eg. failed backup. It's advised to use a centralized topic in a Shared account"
 }
 
+variable "backup_notifications_enabled" {
+  type = boolean
+  default = false
+}
+
 variable "backup_notifications_events" {
   type = list(string)
   default = [
