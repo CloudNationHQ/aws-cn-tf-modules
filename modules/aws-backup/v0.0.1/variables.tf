@@ -42,7 +42,7 @@ variable "backup_notifications_topic" {
 }
 
 variable "backup_notifications_enabled" {
-  type = boolean
+  type = bool
   default = false
 }
 
