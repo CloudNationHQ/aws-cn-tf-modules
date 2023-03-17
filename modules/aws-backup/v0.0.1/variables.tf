@@ -1,17 +1,17 @@
 variable "tags" {
-  type    = map(any)
-  default = null
-  description = "Tags to tag all resources with"  
+  type        = map(any)
+  default     = null
+  description = "Tags to tag all resources with"
 }
 
 variable "selection_tag" {
-  default = "backup"
-  description = "Tag that is used to target resources to backup"  
+  default     = "backup"
+  description = "Tag that is used to target resources to backup"
 }
 
 variable "backup_vault_name" {
-  default = "my-backup-vault"
-  description = "Name of the backup vault"  
+  default     = "my-backup-vault"
+  description = "Name of the backup vault"
 }
 
 variable "daily_cron_schedule" {
@@ -45,9 +45,9 @@ variable "backup_notifications_topic" {
 }
 
 variable "backup_notifications_enabled" {
-  type    = bool
-  default = false
-  description = "Enable if you want to receive notifications. Requires backup_notifications_topic to be set"  
+  type        = bool
+  default     = false
+  description = "Enable if you want to receive notifications. Requires backup_notifications_topic to be set"
 }
 
 variable "backup_notifications_events" {
