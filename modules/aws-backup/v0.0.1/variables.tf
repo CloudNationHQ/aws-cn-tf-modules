@@ -1,14 +1,17 @@
 variable "tags" {
   type    = map(any)
   default = null
+  description = "Tags to tag all resources with"  
 }
 
 variable "selection_tag" {
   default = "backup"
+  description = "Tag that is used to target resources to backup"  
 }
 
 variable "backup_vault_name" {
   default = "my-backup-vault"
+  description = "Name of the backup vault"  
 }
 
 variable "daily_cron_schedule" {
@@ -38,12 +41,13 @@ variable "monthly_backup_lifecycledays" {
 variable "backup_notifications_topic" {
   type        = string
   default     = null
-  description = "SNS Topic for backup alerts eg. failed backup. It's advised to use a centralized topic in a Shared account"
+  description = "SNS Topic for backup alerts eg. failed backup."
 }
 
 variable "backup_notifications_enabled" {
   type    = bool
   default = false
+  description = "Enable if you want to receive notifications. Requires backup_notifications_topic to be set"  
 }
 
 variable "backup_notifications_events" {
