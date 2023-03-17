@@ -86,7 +86,6 @@ module "vpc" {
 | <a name="output_subnet_public_subnet_ids"></a> [subnet\_public\_subnet\_ids](#output\_subnet\_public\_subnet\_ids) | List of IDs of public subnets |
 | <a name="output_subnet_public_subnets_cidr_blocks"></a> [subnet\_public\_subnets\_cidr\_blocks](#output\_subnet\_public\_subnets\_cidr\_blocks) | List of cidr\_blocks of public subnets |
 | <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | The ID of the VPC |
-
 # CHANGELOG
 ### v2.0.1
 - Made all inputs optional
