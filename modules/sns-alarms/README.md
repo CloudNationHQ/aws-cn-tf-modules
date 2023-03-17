@@ -9,3 +9,4 @@
 module "sns-alarms" {
   source = "github.com/CloudNation-nl/aws-terraform-modules//modules/sns-alarms/v0.0.1"
 }
+```
