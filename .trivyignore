@@ -1,0 +1,11 @@
+#Image scans config on repository level is deprecated
+AVD-AWS-0030
+
+#TAG Immutability for ECR is optional
+AVD-AWS-0031
+
+#KMS Encryption for ECR is optional
+AVD-AWS-0033
+
+#VPC Flow Logs is optional
+AVD-AWS-0178
