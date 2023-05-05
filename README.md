@@ -27,3 +27,29 @@ CloudNation offers these modules free of charge. If you're missing features, fin
 See `modules/_example` for an example that you can use as a start
 
 Please open a Pull Request for any new versions, make sure to adhere to the versioning strategy and to update the README.md with the changes made. Pull requests are automatically verified using `terraform fmt`. To ensure these tests succeed, perform these against your changes first.
+
+## Module names
+
+Modules must be named locigally and allow for future addition of other features in the same namespace. E.g. don't name an S3 bucket just `bucket` or `s3` but `s3-bucket`.
+
+Some module names can be obvious like `ecs-cluster` and `ecs-service`, but sometimes the module can be named for it's `purpose`, e.g. `sns-alarms` which is an SNS topic that you can use for CW alarms.
+
+## KMS Alias names
+
+KMS aliasses must be named logically and uniformly. Examples are:
+
+- "alias/ecr/repository/${var.name}"
+- "alias/ecs/cluster/${var.name}"
+- "alias/sns/topic/${var.name}"
+
+## DNS Records
+
+DNS records for private hosted zones must adhere to the following pattern:
+
+`{name}.{namespace}.{private_hosted_zone_name}`
+
+Some examples:
+
+- `webappdb.rds.company.local`
+- `products.opensearch.company.local`
+- `bastion.ec2.company.local`
