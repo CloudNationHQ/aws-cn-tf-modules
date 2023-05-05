@@ -20,3 +20,17 @@ jobs:
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check -diff -recursive
+
+  codescanning:
+    name: checkov
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Checkov GitHub Action
+        uses: bridgecrewio/checkov-action@master
+        with:
+          output_format: cli
+          output_file_path: console       
+    
