@@ -35,7 +35,7 @@ module "sns-alarms" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | The AWS region to create things in. | `string` | `"eu-central-1"` | no |
-| <a name="input_sns"></a> [sns](#input\_sns) | sns name for ok warning | `string` | `"sns-topic"` | no |
+| <a name="input_name"></a> [sns](#input\_sns) | sns name for the topic | `string` | `"sns-topic"` | no |
 | <a name="input_subscribers"></a> [subscribers](#input\_subscribers) | n/a | `list(string)` | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(any)` | `null` | no |
 

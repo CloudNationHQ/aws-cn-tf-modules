@@ -1,7 +1,7 @@
 data "aws_caller_identity" "current" {}
 
 resource "aws_sns_topic" "sns" {
-  name              = var.sns
+  name              = var.name
   kms_master_key_id = aws_kms_key.this.arn
   tags              = var.tags
 }
@@ -89,6 +89,6 @@ resource "aws_kms_key" "this" {
 }
 
 resource "aws_kms_alias" "this" {
-  name_prefix   = "alias/${var.sns}"
+  name_prefix   = "alias/sns/${var.name}"
   target_key_id = aws_kms_key.this.key_id
 }
