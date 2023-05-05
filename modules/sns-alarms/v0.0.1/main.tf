@@ -89,6 +89,6 @@ resource "aws_kms_key" "this" {
 }
 
 resource "aws_kms_alias" "this" {
-  name_prefix   = "alias/sns/${var.name}"
+  name_prefix   = "alias/sns/topic/${var.name}"
   target_key_id = aws_kms_key.this.key_id
 }
