@@ -32,5 +32,7 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           output_format: cli
-          output_file_path: console       
+          output_file_path: console  
+          framework: terraform     
+          quiet: true
     
