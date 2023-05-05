@@ -1,5 +1,5 @@
-variable "sns" {
-  description = "sns name for ok warning"
+variable "name" {
+  description = "sns name for the topic"
   default     = "sns-topic"
 }
 
