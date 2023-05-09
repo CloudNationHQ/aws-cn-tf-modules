@@ -4,6 +4,7 @@ variable "public_zone_name" {
 }
 
 variable "tags" {
-  type    = map(any)
-  default = null
+  type        = map(any)
+  default     = null
+  description = "tags"
 }

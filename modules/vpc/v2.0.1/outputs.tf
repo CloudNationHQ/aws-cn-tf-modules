@@ -31,14 +31,18 @@ output "subnet_database_subnets_group_name" {
   value       = module.vpc.database_subnet_group_name
 }
 output "azs" {
-  value = module.vpc.azs
+  value       = module.vpc.azs
+  description = "Availability zones in use"
 }
 output "private_zone_id" {
-  value = aws_route53_zone.private.zone_id
+  value       = aws_route53_zone.private.zone_id
+  description = "Private zone ID"
 }
 output "private_zone_name" {
-  value = aws_route53_zone.private.name
+  value       = aws_route53_zone.private.name
+  description = "Private zone name"
 }
 output "route_table_ids" {
-  value = concat(module.vpc.private_route_table_ids, module.vpc.public_route_table_ids, module.vpc.database_route_table_ids)
+  value       = concat(module.vpc.private_route_table_ids, module.vpc.public_route_table_ids, module.vpc.database_route_table_ids)
+  description = "All Route table IDs"
 }

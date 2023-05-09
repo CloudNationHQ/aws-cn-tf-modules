@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   terraform:
-    name: "Validate"
+    name: "Format and Lint"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,3 +20,13 @@ jobs:
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check -diff -recursive
+
+      - uses: terraform-linters/setup-tflint@v3
+        name: Setup TFLint
+        
+      - name: Init TFLint
+        run: tflint --init    
+        
+      - name: Run TFLint
+        run: cd modules/ && tflint -f compact --recursive
+        

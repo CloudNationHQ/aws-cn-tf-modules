@@ -17,6 +17,7 @@ variable "cloudwatch_log_retention" {
 }
 
 variable "tags" {
-  type    = map(any)
-  default = null
+  type        = map(any)
+  default     = null
+  description = "tags"
 }

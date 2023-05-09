@@ -1,14 +1,19 @@
 
 variable "name" {
   description = "Name."
+  type        = string
 }
 variable "private_zone_name" {
+  type        = string
+  description = "private zone name."
 }
 variable "env" {
   description = "environment name."
+  type        = string
 }
 variable "cidr" {
   description = "The CIDR block for the VPC."
+  type        = string
 }
 variable "azs" {
   description = "A list of availability zones in the region"
@@ -53,23 +58,19 @@ variable "database_subnet_tags" {
 variable "enable_nat_gateway" {
   description = "Should be true if you want to provision NAT Gateways for each of your private networks"
   default     = true
+  type        = bool
 }
 variable "single_nat_gateway" {
   description = "Should be true if you want to provision a single shared NAT Gateway across all of your private networks"
   default     = true
+  type        = bool
 }
 variable "tags" {
-  type = map(any)
+  type        = map(any)
+  description = "Map of tags"
 }
 variable "deletion_window_in_days" {
-  type    = number
-  default = 30
-}
-variable "log_destination_type" {
-  type    = string
-  default = "s3"
-}
-variable "traffic_type" {
-  type    = string
-  default = "ALL"
+  type        = number
+  default     = 30
+  description = "How many days to keep VPC flow logs"
 }
