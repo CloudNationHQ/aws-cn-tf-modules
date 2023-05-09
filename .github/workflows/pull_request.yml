@@ -1,4 +1,4 @@
-name: "FMT Terraform"
+name: FMT Terraform
 
 on: [pull_request]
 
@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   terraform:
-    name: "Format and Lint"
+    name: Format and Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,9 +24,9 @@ jobs:
       - uses: terraform-linters/setup-tflint@v3
         name: Setup TFLint
         
-      # - name: Init TFLint
-      #   run: tflint --init    
+      - name: Init TFLint
+        run: tflint --init
         
       - name: Run TFLint
-        run: cd modules/ && tflint --init && tflint -f compact --recursive
+        run: tflint --recursive --config "$(pwd)/../.tflint.hcl"
         
