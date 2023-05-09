@@ -24,9 +24,6 @@ jobs:
       - uses: terraform-linters/setup-tflint@v3
         name: Setup TFLint
         
-      - name: Init TFLint
-        run: tflint --init
-        
       - name: Run TFLint
-        run: cd modules/ && tflint --recursive --config "$(pwd)/.tflint.hcl"
+        run: cd modules/ && tflint --init && tflint --recursive --config "$(pwd)/.tflint.hcl"
         
