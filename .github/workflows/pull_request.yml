@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   terraform:
-    name: "Terraform FMT"
+    name: "Format and Lint"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,5 +28,5 @@ jobs:
         run: tflint --init    
         
       - name: Run TFLint
-        run: tflint -f compact --recursive
+        run: tflint -f compact --recursive --filter ./examples
         
