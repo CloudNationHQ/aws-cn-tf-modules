@@ -12,5 +12,5 @@ variable "defaultparameter" {
 variable "optionalparameter" {
   description = "Enable Infinidash auth"
   default     = false
-  type        = boolean
+  type        = bool
 }

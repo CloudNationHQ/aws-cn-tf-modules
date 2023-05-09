@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   terraform:
-    name: "Validate"
+    name: "Terraform FMT"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,18 +21,12 @@ jobs:
         id: fmt
         run: terraform fmt -check -diff -recursive
 
-  codescanning:
-    name: checkov
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Checkov GitHub Action
-        uses: bridgecrewio/checkov-action@master
-        with:
-          output_format: cli
-          output_file_path: console  
-          framework: terraform     
-          quiet: true
-    
+      - uses: terraform-linters/setup-tflint@v3
+        name: Setup TFLint
+        
+      - name: Init TFLint
+        run: tflint --init    
+        
+      - name: Run TFLint
+        run: tflint -f compact --recursive
+        
