@@ -1,6 +1,5 @@
 variable "name" {
   default     = "my-ecr-repo"
-  description = "Name for the ECR Repo"
   type        = string
 }
 variable "mutability" {
