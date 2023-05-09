@@ -28,5 +28,5 @@ jobs:
         run: tflint --init    
         
       - name: Run TFLint
-        run: tflint -f compact --recursive --filter ./examples
+        run: cd modules/ && tflint -f compact --recursive
         
