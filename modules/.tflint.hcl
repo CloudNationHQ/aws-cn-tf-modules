@@ -2,7 +2,7 @@
 
 plugin "terraform" {
   enabled = true
-  preset  = "recommended"
+  preset  = "all"
 }
 
 plugin "aws" {
