@@ -1,6 +1,6 @@
 variable "name" {
-  default     = "my-ecr-repo"
-  type        = string
+  default = "my-ecr-repo"
+  type    = string
 }
 variable "mutability" {
   default     = "MUTABLE"
