@@ -31,8 +31,10 @@ output "subnet_database_subnets_group_name" {
   value       = module.vpc.database_subnet_group_name
 }
 output "azs" {
-  value = module.vpc.azs
+  value       = module.vpc.azs
+  description = "Availability zones in use"
 }
 output "private_zone_id" {
-  value = aws_route53_zone.private.zone_id
+  value       = aws_route53_zone.private.zone_id
+  description = "Private zone ID"
 }

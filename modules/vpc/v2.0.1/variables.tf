@@ -1,16 +1,19 @@
 variable "private_zone_name" {
   description = "private zone name."
   default     = "example.lan"
+  type        = string
 }
 
 variable "env" {
   description = "environment name."
   default     = "dev"
+  type        = string
 }
 
 variable "cidr_range" {
   description = "The CIDR block for the VPC."
   default     = "10.0.0.0/16"
+  type        = string
 }
 
 variable "public_subnets" {
@@ -48,6 +51,7 @@ variable "private_subnet_tags" {
 variable "database_subnet_group_name" {
   default     = ""
   description = "Use this to prevent renaming a database subnet when renaming VPC"
+  type        = string
 }
 
 variable "database_subnets" {
@@ -84,8 +88,9 @@ variable "enable_flow_log" {
 }
 
 variable "tags" {
-  type    = map(any)
-  default = {}
+  type        = map(any)
+  default     = {}
+  description = "tags"
 }
 
 variable "flow_log_retention_days" {
@@ -102,4 +107,5 @@ variable "azs" {
 variable "create_database_nat_gateway_route" {
   default     = false
   description = "Controls if a nat gateway route should be created to give internet access to the database subnets"
+  type        = bool
 }
