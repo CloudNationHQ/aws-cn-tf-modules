@@ -28,5 +28,5 @@ jobs:
         run: tflint --init
         
       - name: Run TFLint
-        run: tflint --recursive --config "$(pwd)/../.tflint.hcl"
+        run: tflint --recursive --config "$(pwd)/.tflint.hcl"
         
