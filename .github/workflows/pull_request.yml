@@ -25,5 +25,6 @@ jobs:
         name: Setup TFLint
         
       - name: Run TFLint
-        run: cd modules/ && tflint --init && tflint --recursive --config "$(pwd)/.tflint.hcl"
+        working-directory: ./modules
+        run: tflint --init && tflint --recursive --config "$(pwd)/.tflint.hcl"
         
