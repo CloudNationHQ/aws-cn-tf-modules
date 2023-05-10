@@ -10,7 +10,7 @@
 
 ```
 module "vpc" {
-  source                  = "github.com/CloudNation-nl/aws-terraform-modules//modules/vpc/v2.0.1"
+  source                  = "github.com/CloudNation-nl/aws-terraform-modules//modules/vpc/v2.1.0"
 }
 ```
 
@@ -69,6 +69,8 @@ module "vpc" {
 | <a name="input_public_subnets"></a> [public\_subnets](#input\_public\_subnets) | A list of public subnets inside the VPC | `list(string)` | `[]` | no |
 | <a name="input_single_nat_gateway"></a> [single\_nat\_gateway](#input\_single\_nat\_gateway) | Should be true if you want to provision a single shared NAT Gateway across all of your private networks | `bool` | `true` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(any)` | `{}` | no |
+| <a name="input_enable_ipv6"></a> [enable_ipv6](#input\_enable_ipv6) | n/a | `bool` | `false` | no |
+| <a name="input_public_subnet_ipv6_prefixes"></a> [public_subnet_ipv6_prefixes](#input\public_subnet_ipv6_prefixes) | n/a | `list(any)` | `[]` | no |
 
 ## Outputs
 
@@ -86,7 +88,12 @@ module "vpc" {
 | <a name="output_subnet_public_subnet_ids"></a> [subnet\_public\_subnet\_ids](#output\_subnet\_public\_subnet\_ids) | List of IDs of public subnets |
 | <a name="output_subnet_public_subnets_cidr_blocks"></a> [subnet\_public\_subnets\_cidr\_blocks](#output\_subnet\_public\_subnets\_cidr\_blocks) | List of cidr\_blocks of public subnets |
 | <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | The ID of the VPC |
+
 # CHANGELOG
+
+### v2.1.0
+- Added support for public IPv6 subnets
+
 ### v2.0.1
 - Made all inputs optional
 - Updated README
