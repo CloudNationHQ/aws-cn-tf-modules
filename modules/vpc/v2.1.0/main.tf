@@ -38,10 +38,6 @@ module "vpc" {
   tags = var.tags
 }
 
-output "test" {
-  value = length(module.vpc.azs)
-}
-
 module "vpc_endpoints" {
   source  = "terraform-aws-modules/vpc/aws//modules/vpc-endpoints"
   version = "~> v3.19.0"
