@@ -11,7 +11,7 @@ variable "subnet_ids" {
 
 variable "allowed_security_groups" {
   description = "security groups allowed for ingress"
-  default = [ ]
+  default     = []
   type = list(object({
     from_port       = number
     to_port         = number
