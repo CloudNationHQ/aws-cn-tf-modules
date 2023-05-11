@@ -8,9 +8,11 @@ EFS Filesystem
 # Usage
 
 ```
-module "example" {
+module "efs" {
   source          = "github.com/CloudNation-nl/aws-terraform-modules//modules/efs/v0.0.1"
   name            = "my-filesystem"
+  vpc_id          = module.vpc.vpc_id
+  subnet_ids      = module.vpc.subnet_private_subnet_ids
 }
 ```
 
