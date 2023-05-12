@@ -13,9 +13,6 @@ variable "allowed_security_groups" {
   description = "security groups allowed for ingress"
   default     = []
   type = list(object({
-    from_port       = number
-    to_port         = number
-    protocol        = string
     security_groups = list(string)
     description     = string
   }))

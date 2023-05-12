@@ -61,9 +61,9 @@ resource "aws_security_group" "security-group" {
   dynamic "ingress" {
     for_each = var.allowed_security_groups
     content {
-      from_port       = ingress.value["from_port"]
-      to_port         = ingress.value["to_port"]
-      protocol        = ingress.value["protocol"]
+      from_port       = 2049
+      to_port         = 2049
+      protocol        = "TCP"
       security_groups = ingress.value["security_groups"]
       description     = ingress.value["description"]
     }
