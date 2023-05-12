@@ -22,7 +22,7 @@ resource "aws_kms_key" "efs" {
 resource "aws_efs_file_system" "efs" {
   encrypted      = true
   kms_key_id     = aws_kms_key.efs.arn
-  tags           = var.tags
+  tags           = merge({ "Name" = var.name }, var.tags)
   creation_token = var.name
   lifecycle_policy {
     transition_to_ia = lookup(var.lifecycle_policies, "transition_to_ia", null)
