@@ -18,3 +18,9 @@ variable "managed_policy_arns" {
   description = "A map of the arns of the managed policies that you would like to associate with this permission set"
   type        = map(string)
 }
+
+variable "inline_policy" {
+  description = "An inline policy that has to be added to the permission set. Use a valid JSON string as input. If this input is skipped no inline policy is added to the permission set."
+  type        = string
+  default     = ""
+}

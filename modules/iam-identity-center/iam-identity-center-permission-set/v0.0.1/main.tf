@@ -18,23 +18,10 @@ resource "aws_ssoadmin_managed_policy_attachment" "this" {
   permission_set_arn = aws_ssoadmin_permission_set.this.arn
 }
 
-# data "aws_iam_policy_document" "this" {
-#   statement {
-#     sid = "1"
-
-#     actions = [
-#       "s3:ListAllMyBuckets",
-#       "s3:GetBucketLocation",
-#     ]
-
-#     resources = [
-#       "arn:aws:s3:::*",
-#     ]
-#   }
-# }
-
-# resource "aws_ssoadmin_permission_set_inline_policy" "example" {
-#   inline_policy      = data.aws_iam_policy_document.this.json
-#   instance_arn       = local.identity_store_id
-#   permission_set_arn = aws_ssoadmin_permission_set.this.arn
-# }
+resource "aws_ssoadmin_permission_set_inline_policy" "this" {
+  # only create an inline policy if the value of the input variable is not empty
+  count              = var.inline_policy == "" ? 0 : 1
+  inline_policy      = var.inline_policy
+  instance_arn       = local.identity_store_arn
+  permission_set_arn = aws_ssoadmin_permission_set.this.arn
+}
