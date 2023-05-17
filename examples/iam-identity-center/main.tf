@@ -29,6 +29,6 @@ module "engineer_power_user_assignment" {
   permission_set_arn = module.power_user_permission_set.permission_set_arn
   group_id           = module.engineer_group.group_id
   account_ids = {
-    management = "909183324734" #devorg-management account id
+    management = "111213141516" #replace this value with your desired AWS account id
   }
 }
