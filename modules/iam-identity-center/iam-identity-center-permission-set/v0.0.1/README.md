@@ -45,3 +45,8 @@ No modules.
 |------|-------------|
 | <a name="output_permission_set_arn"></a> [permission\_set\_arn](#output\_permission\_set\_arn) | The arn of the IAM Identity Center permission set |
 <!-- END_TF_DOCS -->
+
+# CHANGELOG
+
+v0.0.1
+- Initial module
