@@ -16,4 +16,5 @@ variable "family_name" {
 variable "groups" {
   description = "the groups to which the user has to be added as a member"
   type        = map(string)
+  default     = {}
 }

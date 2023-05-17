@@ -35,7 +35,7 @@ No modules.
 | <a name="input_email"></a> [email](#input\_email) | The email of the user, this will be used as well to set the user\_name | `string` | n/a | yes |
 | <a name="input_family_name"></a> [family\_name](#input\_family\_name) | The last name of the user | `string` | n/a | yes |
 | <a name="input_given_name"></a> [given\_name](#input\_given\_name) | The first name of the user | `string` | n/a | yes |
-| <a name="input_groups"></a> [groups](#input\_groups) | the groups to which the user has to be added as a member | `map(string)` | n/a | yes |
+| <a name="input_groups"></a> [groups](#input\_groups) | the groups to which the user has to be added as a member | `map(string)` | `{}` | no |
 
 ## Outputs
 
