@@ -53,3 +53,26 @@ Some examples:
 - `webappdb.rds.company.local`
 - `products.opensearch.company.local`
 - `bastion.ec2.company.local`
+
+## Useful commands
+
+## Terraform docs
+Run the following command from the module root to automatically create terraform documentation:
+
+```terraform-docs markdown --output-file README.md --output-mode inject .```
+
+## Terraform code formatting
+
+Run the following command from the project root (or module root) to format your code format nicely:
+
+```terraform fmt -recursive```
+
+This is a requirement for every pull request.
+
+## Terraform code validation
+
+Run the following command from the /modules folder to validate your terraform to best practices:
+
+```tflint --init && tflint --recursive --config ".tflint.hcl"```
+
+This is a requirement for every pull request.
