@@ -1,3 +1,7 @@
+## AWS IAM Identity Center User
+## Description
+This module deploys a single AWS IAM Identity Center user. You can specify the group membership this user will have.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

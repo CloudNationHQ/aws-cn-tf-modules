@@ -1,3 +1,7 @@
+## AWS IAM Identity Center Group Assignment
+## Description
+This module deploys a single AWS IAM Identity Center group assignment. This is an assignment of one AWS IAM Identity Center group for one ore more AWS accounts using one permission set.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

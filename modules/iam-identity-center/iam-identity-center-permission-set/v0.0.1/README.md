@@ -1,3 +1,7 @@
+## AWS IAM Identity Center Permission Set
+## Description
+This module deploys a single AWS IAM Identity Center permission set.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

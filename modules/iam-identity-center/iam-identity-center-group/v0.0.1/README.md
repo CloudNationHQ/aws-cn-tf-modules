@@ -1,3 +1,7 @@
+## AWS IAM Identity Center Group
+## Description
+This module deploys an empty single AWS IAM Identity Center group. 
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
