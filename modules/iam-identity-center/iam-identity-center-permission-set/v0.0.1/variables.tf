@@ -17,6 +17,7 @@ variable "session_duration" {
 variable "managed_policy_arns" {
   description = "A map of the arns of the managed policies that you would like to associate with this permission set"
   type        = map(string)
+  default     = {}
 }
 
 variable "inline_policy" {
