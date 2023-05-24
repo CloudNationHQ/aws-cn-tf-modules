@@ -34,8 +34,11 @@ module "example" {
 |------|-------------|
 | <a name="output_public_name_servers"></a> [public\_name\_servers](#output\_public\_name\_servers) | n/a |
 | <a name="output_public_zone_id"></a> [public\_zone\_id](#output\_public\_zone\_id) | n/a |
+| <a name="output_public_zone_name"></a> [public\_zone\_name](#output\_public\_zone\_name) | n/a |
 
 # CHANGELOG
 
+v0.0.2
+- Added public zone name output
 v0.0.1
 - Initial version
