@@ -10,6 +10,7 @@ variable "tags" {
 }
 
 variable "dnssec" {
-  type    = bool
-  default = false
+  type        = bool
+  default     = false
+  description = "Enable DNSSEC"
 }
