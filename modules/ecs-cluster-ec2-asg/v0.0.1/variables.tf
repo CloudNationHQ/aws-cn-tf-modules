@@ -35,6 +35,12 @@ variable "max_size" {
   default     = 5
 }
 
+variable "desired_capacity" {
+  description = "Number of Amazon EC2 instances that should be running in the group"
+  type        = number
+  default     = 1
+}
+
 variable "health_check_type" {
   description = "Controls how health checking is done. Valid values are EC2 and ELB"
   type        = string
