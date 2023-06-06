@@ -6,7 +6,7 @@ provider "aws" {
 
 locals {
   cluster_name = "ecs-cluster-asg-sebro-${local.env}"
-  env = "poc"
+  env          = "poc"
 }
 
 module "vpc" {
