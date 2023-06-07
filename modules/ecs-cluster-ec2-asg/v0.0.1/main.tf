@@ -181,6 +181,9 @@ resource "aws_autoscaling_group" "this" {
   health_check_grace_period = var.health_check_grace_period
   default_cooldown          = var.default_cooldown
   termination_policies      = var.termination_policies
+  protect_from_scale_in     = var.protect_from_scale_in
+  # protect_from_scale_in     = true
+  # To enable managed termination protection for a capacity provider, the Auto Scaling group must have instance protection from scale in enabled.
 
   launch_template {
     id      = aws_launch_template.this.id
@@ -203,10 +206,43 @@ resource "aws_autoscaling_group" "this" {
     }
   }
 
-  protect_from_scale_in = var.protect_from_scale_in
 
   lifecycle {
     create_before_destroy = true
+  }
+}
+
+# Create capacity provider
+# Reference: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html
+resource "aws_ecs_capacity_provider" "this" {
+  #The capacity provider name can have up to 255 characters, including letters (upper and lowercase), numbers, underscores, and hyphens.
+  # The name cannot be prefixed with "aws", "ecs", or "fargate".
+  name = join("-", ["cp", var.cluster_name])
+
+  auto_scaling_group_provider {
+    auto_scaling_group_arn = aws_autoscaling_group.this.arn
+    # managed_termination_protection = "ENABLED"
+    managed_termination_protection = "DISABLED"
+
+    managed_scaling {
+      instance_warmup_period    = 120 # Default is 300
+      maximum_scaling_step_size = 1000
+      minimum_scaling_step_size = 1
+      status                    = "ENABLED"
+      target_capacity           = 100
+    }
+  }
+}
+
+resource "aws_ecs_cluster_capacity_providers" "this" {
+  cluster_name = aws_ecs_cluster.this.name
+
+  capacity_providers = [aws_ecs_capacity_provider.this.name]
+
+  default_capacity_provider_strategy {
+    base              = 1
+    weight            = 100
+    capacity_provider = aws_ecs_capacity_provider.this.name
   }
 }
 
