@@ -39,11 +39,11 @@ output "ecs_instance_profile_id" {
 }
 
 output "ecs_instance_role_arn" {
-  description = "ECS instance role ARN"
+  description = "ECS instance role ARN. Policies can be added using `aws_iam_role_policy_attachment` and `aws_iam_role_policy`"
   value       = aws_iam_role.ecs_instance_role.arn
 }
 
 output "ecs_service_role_arn" {
-  description = "ECS service role ARN"
+  description = "ECS service role ARN. Policies can be added using `aws_iam_role_policy_attachment` and `aws_iam_role_policy`"
   value       = aws_iam_role.ecs_service_role.arn
 }
