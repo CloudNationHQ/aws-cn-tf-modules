@@ -182,7 +182,6 @@ resource "aws_autoscaling_group" "this" {
   default_cooldown          = var.default_cooldown
   termination_policies      = var.termination_policies
   protect_from_scale_in     = var.protect_from_scale_in
-  # protect_from_scale_in     = true
   # To enable managed termination protection for a capacity provider, the Auto Scaling group must have instance protection from scale in enabled.
 
   launch_template {
