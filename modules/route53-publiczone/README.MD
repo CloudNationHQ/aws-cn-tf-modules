@@ -10,7 +10,7 @@ Public Route53 Zone
 
 ```
 module "example" {
-  source            = "github.com/CloudNation-nl/aws-terraform-modules//modules/route53-publiczone/v0.1.0"
+  source            = "github.com/CloudNation-nl/aws-terraform-modules//modules/route53-publiczone/v0.1.1"
   public_zone_name  = "example.com"
 }
 ```
@@ -29,6 +29,7 @@ module "example" {
 | <a name="input_public_zone_name"></a> [public\_zone\_name](#input\_public\_zone\_name) | Name for the public zone, e.g. example.com | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(any)` | `null` | no |
 | <a name="input_dnssec"></a> [dnssec](#input\_dnssec) | n/a | `bool` | `null` | no |
+| <a name="input_force_destroy"></a> [force_destroy](#input\_force_destroy) | Force destroy of all records when zone is deleted | `bool` | `false` | no |
 
 ## Outputs
 
@@ -40,6 +41,8 @@ module "example" {
 
 # CHANGELOG
 
+v0.1.1
+- Added force_destroy option
 v0.1.0
 - Added DNSSEC records
 v0.0.2
