@@ -123,9 +123,32 @@ resource "aws_iam_role" "ecs_instance_role" {
 resource "aws_iam_role_policy" "ecs_instance_role_policy" {
   #checkov:skip=CKV_AWS_290:IAM policy will be set as desired
   #checkov:skip=CKV_AWS_355:IAM policy will be set as desired
-  name   = "EcsInstanceRolePolicy-${var.cluster_name}-${random_id.code.hex}"
-  role   = aws_iam_role.ecs_instance_role.id
-  policy = var.ecs_instance_role_policy
+  name = "EcsInstanceRolePolicy-${var.cluster_name}-${random_id.code.hex}"
+  role = aws_iam_role.ecs_instance_role.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "ecs:CreateCluster",
+          "ecs:DeregisterContainerInstance",
+          "ecs:DiscoverPollEndpoint",
+          "ecs:Poll",
+          "ecs:RegisterContainerInstance",
+          "ecs:StartTelemetrySession",
+          "ecs:Submit*",
+          "ecr:GetAuthorizationToken",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        Resource = "*"
+      }
+    ]
+  })
 }
 
 resource "aws_iam_instance_profile" "ecs_instance_profile" {
@@ -154,9 +177,26 @@ resource "aws_iam_role" "ecs_service_role" {
 resource "aws_iam_role_policy" "ecs_service_role_policy" {
   #checkov:skip=CKV_AWS_290:IAM policy will be set as desired
   #checkov:skip=CKV_AWS_355:IAM policy will be set as desired
-  name   = "EcsServiceRolePolicy-${var.cluster_name}-${random_id.code.hex}"
-  role   = aws_iam_role.ecs_service_role.id
-  policy = var.ecs_service_role_policy
+  name = "EcsServiceRolePolicy-${var.cluster_name}-${random_id.code.hex}"
+  role = aws_iam_role.ecs_service_role.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:Describe*",
+          "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
+          "elasticloadbalancing:DeregisterTargets",
+          "elasticloadbalancing:Describe*",
+          "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
+          "elasticloadbalancing:RegisterTargets"
+        ],
+        Resource = "*"
+      }
+    ]
+  })
 }
 
 # Create Launch Template
