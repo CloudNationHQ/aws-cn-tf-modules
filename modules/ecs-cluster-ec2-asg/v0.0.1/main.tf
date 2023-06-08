@@ -168,7 +168,7 @@ resource "aws_launch_template" "this" {
   default_version        = 1
   ebs_optimized          = false
   name                   = "lt-${var.cluster_name}"
-  image_id               = data.aws_ami.ecs_ami.id
+  image_id               = var.ami_id == "" ? data.aws_ami.ecs_ami.id : var.ami_id
   instance_type          = var.instance_type
   key_name               = var.ssh_key_name
   vpc_security_group_ids = var.security_group_ids
