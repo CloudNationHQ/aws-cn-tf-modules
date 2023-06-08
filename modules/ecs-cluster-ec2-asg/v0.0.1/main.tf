@@ -135,7 +135,7 @@ resource "aws_iam_instance_profile" "ecs_instance_profile" {
 
 # Create ECS IAM Service Role and Policy
 resource "aws_iam_role" "ecs_service_role" {
-  name               = "EcsServiceRole-${var.cluster_name}-${random_id.code.hex}"
+  name = "EcsServiceRole-${var.cluster_name}-${random_id.code.hex}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -243,7 +243,7 @@ resource "aws_ecs_capacity_provider" "this" {
   name = join("-", ["cp", var.cluster_name])
 
   auto_scaling_group_provider {
-    auto_scaling_group_arn = aws_autoscaling_group.this.arn
+    auto_scaling_group_arn         = aws_autoscaling_group.this.arn
     managed_termination_protection = var.protect_from_scale_in ? "ENABLED" : "DISABLED"
 
     managed_scaling {
