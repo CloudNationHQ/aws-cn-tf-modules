@@ -91,7 +91,7 @@ variable "cluster_name" {
 }
 
 # Optional:
-var "ami_id" {
+variable "ami_id" {
   description = "AMI ID to use for the EC2 instances. When no AMI ID is specified, the latest Amazon Linux 2 version will be used"
   type        = string
   default     = ""
