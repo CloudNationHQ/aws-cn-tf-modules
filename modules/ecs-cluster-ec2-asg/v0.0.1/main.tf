@@ -104,7 +104,7 @@ resource "random_id" "code" {
 }
 
 resource "aws_iam_role" "ecs_instance_role" {
-  name               = "EcsInstanceRole-${var.cluster_name}-${random_id.code.hex}"
+  name               = join("-", [substr("EcsInstanceRole-${var.cluster_name}", 0, 59), random_id.code.hex])
   assume_role_policy = var.ecs_instance_role_assume_role_policy
 }
 
@@ -117,7 +117,7 @@ resource "aws_iam_role_policy" "ecs_instance_role_policy" {
 }
 
 resource "aws_iam_instance_profile" "ecs_instance_profile" {
-  name = "ecsInstanceProfile-${var.cluster_name}-${random_id.code.hex}"
+  name = join("-", [substr("EcsInstanceProfile-${var.cluster_name}", 0, 59), random_id.code.hex])
   role = aws_iam_role.ecs_instance_role.name
 }
 
