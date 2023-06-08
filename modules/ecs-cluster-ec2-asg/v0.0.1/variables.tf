@@ -106,26 +106,6 @@ variable "cloudwatch_log_retention" {
   default     = 7
 }
 
-variable "ecs_instance_role_assume_role_policy" {
-  description = "Assume role policy for the instance role"
-  type        = string
-  default     = <<EOF
-{
-  "Version": "2008-10-17",
-  "Statement": [
-    {
-      "Sid": "",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-EOF
-}
-
 variable "ecs_instance_role_policy" {
   description = "Instance role policy"
   type        = string
@@ -151,26 +131,6 @@ variable "ecs_instance_role_policy" {
         "logs:PutLogEvents"
       ],
       "Resource": "*"
-    }
-  ]
-}
-EOF
-}
-
-variable "ecs_service_role_assume_role_policy" {
-  description = "Assume role policy for the service role"
-  type        = string
-  default     = <<EOF
-{
-  "Version": "2008-10-17",
-  "Statement": [
-    {
-      "Sid": "",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "ecs.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
     }
   ]
 }

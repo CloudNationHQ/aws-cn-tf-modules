@@ -105,7 +105,21 @@ resource "random_id" "code" {
 
 resource "aws_iam_role" "ecs_instance_role" {
   name               = join("-", [substr("EcsInstanceRole-${var.cluster_name}", 0, 59), random_id.code.hex])
-  assume_role_policy = var.ecs_instance_role_assume_role_policy
+  assume_role_policy = <<EOF
+{
+  "Version": "2008-10-17",
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+EOF
 }
 
 resource "aws_iam_role_policy" "ecs_instance_role_policy" {
@@ -124,7 +138,21 @@ resource "aws_iam_instance_profile" "ecs_instance_profile" {
 # Create ECS IAM Service Role and Policy
 resource "aws_iam_role" "ecs_service_role" {
   name               = "EcsServiceRole-${var.cluster_name}-${random_id.code.hex}"
-  assume_role_policy = var.ecs_service_role_assume_role_policy
+  assume_role_policy = <<EOF
+{
+  "Version": "2008-10-17",
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ecs.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+EOF
 }
 
 resource "aws_iam_role_policy" "ecs_service_role_policy" {
