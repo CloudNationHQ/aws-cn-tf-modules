@@ -40,12 +40,13 @@ resource "aws_security_group" "this" {
 
 module "ecs_asg_ec2" {
   # source                = "github.com/CloudNation-nl/aws-terraform-modules//modules/ecs-cluster-ec2-asg/v0.0.1?ref=9468160b2fcd3e84be35dd173cb95ca45972d8c0"
-  source                = "../../modules/ecs-cluster-ec2-asg/v0.0.1"
-  cluster_name          = local.cluster_name
-  subnet_ids            = module.vpc.subnet_private_subnet_ids
-  security_group_ids    = [aws_security_group.this.id]
-  min_size              = 0
-  max_size              = 2
-  desired_capacity      = 1
-  alarm_actions_enabled = false
+  source                    = "../../modules/ecs-cluster-ec2-asg/v0.0.1"
+  cluster_name              = local.cluster_name
+  subnet_ids                = module.vpc.subnet_private_subnet_ids
+  security_group_ids        = [aws_security_group.this.id]
+  health_check_grace_period = 30
+  min_size                  = 0
+  max_size                  = 2
+  desired_capacity          = 1
+  alarm_actions_enabled     = false
 }
