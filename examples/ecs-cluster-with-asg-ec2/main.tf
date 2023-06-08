@@ -2,6 +2,11 @@ provider "aws" {
   profile                  = "aws-cn-rd"
   region                   = "eu-west-1"
   shared_credentials_files = ["~/.aws/credentials"]
+  default_tags {
+    tags = {
+      map-migrated = "dummy-for-testing"
+    }
+  }
 }
 
 locals {
