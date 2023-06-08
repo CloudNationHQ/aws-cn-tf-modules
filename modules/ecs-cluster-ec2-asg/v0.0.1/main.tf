@@ -177,7 +177,7 @@ resource "aws_autoscaling_group" "this" {
   min_size                  = var.min_size
   max_size                  = var.max_size
   desired_capacity          = var.desired_capacity
-  health_check_type         = var.health_check_type
+  health_check_type         = "EC2"
   health_check_grace_period = var.health_check_grace_period
   default_cooldown          = var.default_cooldown
   termination_policies      = var.termination_policies

@@ -41,16 +41,6 @@ variable "desired_capacity" {
   default     = 1
 }
 
-variable "health_check_type" {
-  description = "Controls how health checking is done. Valid values are EC2 and ELB"
-  type        = string
-  default     = "EC2"
-  validation {
-    condition     = contains(["EC2", "ELB"], var.health_check_type)
-    error_message = "Valid values for health_check_types are: EC2, ELB"
-  }
-}
-
 variable "health_check_grace_period" {
   description = "Time (in seconds) after instance comes into service before checking health"
   type        = number
