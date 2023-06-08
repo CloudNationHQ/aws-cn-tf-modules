@@ -214,7 +214,7 @@ resource "aws_autoscaling_group" "this" {
 # Create capacity provider
 # Reference: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html
 resource "aws_ecs_capacity_provider" "this" {
-  #The capacity provider name can have up to 255 characters, including letters (upper and lowercase), numbers, underscores, and hyphens.
+  # The capacity provider name can have up to 255 characters, including letters (upper and lowercase), numbers, underscores, and hyphens.
   # The name cannot be prefixed with "aws", "ecs", or "fargate".
   name = join("-", ["cp", var.cluster_name])
 
