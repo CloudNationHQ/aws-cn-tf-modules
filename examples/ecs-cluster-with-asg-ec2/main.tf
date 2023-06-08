@@ -48,5 +48,4 @@ module "ecs_asg_ec2" {
   min_size                  = 0
   max_size                  = 2
   desired_capacity          = 1
-  alarm_actions_enabled     = false
 }
