@@ -244,8 +244,7 @@ resource "aws_ecs_capacity_provider" "this" {
 
   auto_scaling_group_provider {
     auto_scaling_group_arn = aws_autoscaling_group.this.arn
-    # managed_termination_protection = "ENABLED"
-    managed_termination_protection = "DISABLED"
+    managed_termination_protection = var.protect_from_scale_in ? "ENABLED" : "DISABLED"
 
     managed_scaling {
       instance_warmup_period    = 120 # Default is 300
