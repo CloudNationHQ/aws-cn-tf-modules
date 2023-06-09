@@ -77,6 +77,22 @@ variable "tags" {
   }
 }
 
+variable "instance_warmup_period" {
+  description = "Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group"
+  type        = number
+  default     = 300
+}
+
+variable "target_capacity" {
+  description = "Target utilization for the capacity provider. A number between 1 and 100"
+  type        = number
+  default     = 100
+  validation {
+    condition     = var.target_capacity > 0 && var.target_capacity <= 100
+    error_message = "The value for target_capacity must be between 1 and 100."
+  }
+}
+
 variable "ssh_key_name" {
   description = "Name of SSH key pair to use as default (ec2-user) user key"
   type        = string

@@ -287,11 +287,11 @@ resource "aws_ecs_capacity_provider" "this" {
     managed_termination_protection = var.managed_scaling_protection ? "ENABLED" : "DISABLED"
 
     managed_scaling {
-      instance_warmup_period    = 120 # Default is 300
+      instance_warmup_period    = var.instance_warmup_period
       maximum_scaling_step_size = 1000
       minimum_scaling_step_size = 1
       status                    = "ENABLED"
-      target_capacity           = 100
+      target_capacity           = var.target_capacity
     }
   }
 }
