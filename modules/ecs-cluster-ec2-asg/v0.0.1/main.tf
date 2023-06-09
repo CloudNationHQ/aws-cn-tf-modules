@@ -245,7 +245,7 @@ resource "aws_autoscaling_group" "this" {
   health_check_grace_period = var.health_check_grace_period
   default_cooldown          = var.default_cooldown
   termination_policies      = var.termination_policies
-  protect_from_scale_in     = var.protect_from_scale_in
+  protect_from_scale_in     = var.managed_scaling_protection
   # To enable managed termination protection for a capacity provider, the Auto Scaling group must have instance protection from scale in enabled.
 
   launch_template {
@@ -284,7 +284,7 @@ resource "aws_ecs_capacity_provider" "this" {
 
   auto_scaling_group_provider {
     auto_scaling_group_arn         = aws_autoscaling_group.this.arn
-    managed_termination_protection = var.protect_from_scale_in ? "ENABLED" : "DISABLED"
+    managed_termination_protection = var.managed_scaling_protection ? "ENABLED" : "DISABLED"
 
     managed_scaling {
       instance_warmup_period    = 120 # Default is 300

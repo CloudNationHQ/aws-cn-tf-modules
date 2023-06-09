@@ -63,7 +63,7 @@ variable "termination_policies" {
   }
 }
 
-variable "protect_from_scale_in" {
+variable "managed_scaling_protection" {
   description = "Whether newly launched instances are automatically protected from termination by Amazon EC2 Auto Scaling when scaling in. When set to `true`, this will also enable managed termination protection on the capacity provider"
   type        = bool
   default     = false
