@@ -1,27 +1,16 @@
-provider "aws" {
-  profile                  = "aws-cn-rd"
-  region                   = "eu-west-1"
-  shared_credentials_files = ["~/.aws/credentials"]
-  default_tags {
-    tags = {
-      map-migrated = "dummy-for-testing"
-    }
-  }
-}
-
 locals {
-  cluster_name = join("-", [local.env, "ecs-cluster-asg-sebro"])
+  cluster_name = join("-", [local.env, "ecs-cluster-asg"])
   env          = "poc"
 }
 
 module "vpc" {
   source             = "github.com/CloudNation-nl/aws-terraform-modules//modules/vpc/v2.1.0"
-  cidr_range         = "10.13.0.0/16"
+  cidr_range         = "10.0.0.0/16"
   env                = local.env
   azs                = ["eu-west-1a", "eu-west-1b"]
-  public_subnets     = ["10.13.1.0/24", "10.13.2.0/24"]
-  private_subnets    = ["10.13.3.0/24", "10.13.4.0/24"]
-  database_subnets   = ["10.13.5.0/24", "10.13.6.0/24"]
+  public_subnets     = ["10.0.1.0/24", "10.0.2.0/24"]
+  private_subnets    = ["10.0.3.0/24", "10.0.4.0/24"]
+  database_subnets   = ["10.0.5.0/24", "10.0.6.0/24"]
   enable_nat_gateway = false
 }
 
