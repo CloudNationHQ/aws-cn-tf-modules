@@ -10,7 +10,7 @@ variable "tags" {
 }
 
 variable "CAA" {
-  type    = list(string)
+  type = list(string)
   default = [
     "0 issue \"amazon.com\"",
     "0 issuewild \"amazon.com\""
