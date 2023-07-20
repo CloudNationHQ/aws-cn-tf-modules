@@ -29,7 +29,16 @@ module "example" {
 | <a name="input_public_zone_name"></a> [public\_zone\_name](#input\_public\_zone\_name) | Name for the public zone, e.g. example.com | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(any)` | `null` | no |
 | <a name="input_dnssec"></a> [dnssec](#input\_dnssec) | n/a | `bool` | `null` | no |
+| <a name="input_CAA"></a> [CAA](#input\_CAA) | n/a | `list(string)` | `See Default Below` | no |
 | <a name="input_force_destroy"></a> [force_destroy](#input\_force_destroy) | Force destroy of all records when zone is deleted | `bool` | `false` | no |
+
+Default CAA: 
+```
+[
+    "0 issue \"amazon.com\"",
+    "0 issuewild \"amazon.com\""
+]
+```
 
 ## Outputs
 
@@ -41,6 +50,8 @@ module "example" {
 
 # CHANGELOG
 
+v0.2.0
+- Added posibility to customize CAA record.
 v0.1.1
 - Added force_destroy option
 v0.1.0
