@@ -57,9 +57,9 @@ Some examples:
 ## Useful commands
 
 ## Terraform docs
-Run the following command from the module root to automatically create terraform documentation:
+Run the following command from the module version root to automatically create or update terraform documentation:
 
-```terraform-docs markdown --output-file README.md --output-mode inject .```
+```terraform-docs markdown --output-file ../README.md --output-mode inject .```
 
 ## Terraform code formatting
 

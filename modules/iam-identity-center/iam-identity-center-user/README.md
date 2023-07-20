@@ -41,3 +41,8 @@ No modules.
 
 No outputs.
 <!-- END_TF_DOCS -->
+
+# CHANGELOG
+
+v0.0.1
+- Initial module

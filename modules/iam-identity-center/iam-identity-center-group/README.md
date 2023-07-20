@@ -40,3 +40,8 @@ No modules.
 |------|-------------|
 | <a name="output_group_id"></a> [group\_id](#output\_group\_id) | The id of the IAM Identity Center group |
 <!-- END_TF_DOCS -->
+
+# CHANGELOG
+
+v0.0.1
+- Initial module
