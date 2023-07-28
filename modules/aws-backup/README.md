@@ -38,6 +38,7 @@ module "aws-backup" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_backup_notifications_enabled"></a> [backup\_notifications\_enabled](#input\_backup\_notifications\_enabled) | Enable if you want to receive notifications. Requires backup\_notifications\_topic to be set | `bool` | `false` | no |
+| <a name="input_enable_continues_backup"></a> [enable\_continues\_backup](#input\_enable\_continues\_backup) | Enable continues backups for supported resources | `bool` | `false` | no |
 | <a name="input_backup_notifications_events"></a> [backup\_notifications\_events](#input\_backup\_notifications\_events) | Default list of events | `list(string)` | <pre>[<br>  "BACKUP_JOB_FAILED",<br>  "RESTORE_JOB_FAILED",<br>  "COPY_JOB_FAILED",<br>  "S3_BACKUP_OBJECT_FAILED",<br>  "S3_RESTORE_OBJECT_FAILED"<br>]</pre> | no |
 | <a name="input_backup_notifications_topic"></a> [backup\_notifications\_topic](#input\_backup\_notifications\_topic) | SNS Topic for backup alerts eg. failed backup. | `string` | `null` | no |
 | <a name="input_backup_vault_name"></a> [backup\_vault\_name](#input\_backup\_vault\_name) | Name of the backup vault | `string` | `"my-backup-vault"` | no |
@@ -56,3 +57,6 @@ module "aws-backup" {
 v0.0.1
 - Initial Commit
 - SNS notification for Backup events
+
+v0.1.0 
+- Added option to enable continues backups
