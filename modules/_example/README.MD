@@ -9,7 +9,7 @@ Example resource to demonstrate requirements.
 
 ```
 module "example" {
-  source         = "github.com/CloudNation-nl/aws-terraform-modules//modules/example/v0.0.1"
+  source         = "github.com/CloudNationHQ/aws-cn-tf-modules//modules/example/v0.0.1"
   requiredparam  = "value"
 }
 ```

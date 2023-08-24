@@ -59,7 +59,7 @@ Some examples:
 ## Terraform docs
 Run the following command from the module version root to automatically create or update terraform documentation:
 
-```terraform-docs markdown --output-file ../README.md --output-mode inject .```
+```terraform-docs markdown --output-file ../README.MD --output-mode inject .```
 
 If you add a new version and run this command from your new terraform module version, it will overwrite all documentation so that it reflects your new version.
 
