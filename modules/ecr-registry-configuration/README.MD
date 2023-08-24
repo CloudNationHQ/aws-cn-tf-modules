@@ -8,7 +8,7 @@ ECR Registry Configuration.
 
 ```
 module "ecr-registry-config" {
-  source         = "github.com/CloudNationHQ/aws-cn-tf-modules//modules/example/v0.0.1"
+  source         = "github.com/CloudNationHQ/aws-cn-tf-modules//modules/ecr-registry-configuration/v0.0.1"
 }
 ```
 <!-- BEGIN_TF_DOCS -->
