@@ -95,13 +95,13 @@ variable "vault_lock_changeable_for_days" {
 }
 
 variable "vault_lock_max_retention_days" {
-  type = number
-  default = null
+  type        = number
+  default     = null
   description = "The maximum retention period that the vault retains its recovery points."
 }
 
 variable "vault_lock_min_retention_days" {
-  type = number
-  default = null
+  type        = number
+  default     = null
   description = "The minimum retention period that the vault retains its recovery points."
 }
