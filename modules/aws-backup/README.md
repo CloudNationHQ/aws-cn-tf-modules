@@ -11,11 +11,23 @@ module "aws-backup" {
 }
 ```
 
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.4.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.0 |
+
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.0 |
+
+## Modules
+
+No modules.
 
 ## Resources
 
@@ -55,6 +67,11 @@ module "aws-backup" {
 | <a name="input_vault_lock_min_retention_days"></a> [vault\_lock\_min\_retention\_days](#input\_vault\_lock\_min\_retention\_days) | The minimum retention period that the vault retains its recovery points. | `number` | `null` | no |
 | <a name="input_weekly_backup_lifecycledays"></a> [weekly\_backup\_lifecycledays](#input\_weekly\_backup\_lifecycledays) | How many days to store weekly backups | `string` | `31` | no |
 | <a name="input_weekly_cron_schedule"></a> [weekly\_cron\_schedule](#input\_weekly\_cron\_schedule) | Cron schedule for weekly backups | `string` | `"cron(0 12 ? * 1 *)"` | no |
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->
 
 # CHANGELOG
 
