@@ -7,7 +7,7 @@
 
 ```
 module "sns-alarms" {
-  source = "github.com/CloudNation-nl/aws-terraform-modules//modules/sns-alarms/v0.1.0"
+  source = "github.com/CloudNation-nl/aws-terraform-modules//modules/sns-alarms/v0.2.0"
 }
 ```
 
@@ -46,6 +46,9 @@ module "sns-alarms" {
 | <a name="output_sns"></a> [sns](#output\_sns) | SNS ARN |
 
 # CHANGELOG
+
+v0.2.0
+- Added EventBridge as allowed sender
 
 v0.1.0
 - Added SES as allowed sender
