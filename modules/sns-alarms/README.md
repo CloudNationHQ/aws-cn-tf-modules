@@ -47,6 +47,9 @@ module "sns-alarms" {
 
 # CHANGELOG
 
+v0.2.0
+- Added EventBridge as allowed sender
+
 v0.1.0
 - Added SES as allowed sender
 
