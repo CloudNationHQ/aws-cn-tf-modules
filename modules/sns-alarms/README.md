@@ -7,7 +7,7 @@
 
 ```
 module "sns-alarms" {
-  source = "github.com/CloudNation-nl/aws-terraform-modules//modules/sns-alarms/v0.1.0"
+  source = "github.com/CloudNation-nl/aws-terraform-modules//modules/sns-alarms/v0.2.0"
 }
 ```
 
