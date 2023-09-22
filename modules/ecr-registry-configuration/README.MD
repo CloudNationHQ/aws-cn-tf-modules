@@ -11,6 +11,30 @@ module "ecr-registry-config" {
   source         = "github.com/CloudNationHQ/aws-cn-tf-modules//modules/ecr-registry-configuration/v0.0.1"
 }
 ```
+
+# Troubleshooting
+
+An error like this can occur when importing the resource :
+
+```
+When applying changes to module.xxx.module.ecr-registry-config.aws_ecr_registry_scanning_configuration.this[0], provider "provider[\"registry.terraform.io/hashicorp/aws\"]" produced an unexpected new value: Root resource was present, but now absent.
+```
+
+This can be solved by importing the resource with the correct registry id.
+get the registry id with (this might always be the same as the AWS account id):
+
+```
+aws ecr get-registry-scanning-configuration --no-cli-pager --output text --query "registryId"
+```
+
+import the resource with : 
+
+```
+terraform import "module.xxx.module.ecr-registry-config.aws_ecr_registry_scanning_configuration.this[0]" <registry_id_retrieved_with_previous_command>
+```
+
+Terraform apply should now work without errors.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
